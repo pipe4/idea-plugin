@@ -1,18 +1,21 @@
 <!-- Plugin Configuration File. Read more: https://plugins.jetbrains.com/docs/intellij/plugin-configuration-file.html -->
 <idea-plugin>
-    <id>com.github.pioh.ideaplugin</id>
-    <name>idea-plugin</name>
-    <vendor>pioh</vendor>
+    <id>com.github.pipe4.idea.plugin</id>
+    <name>Pipe4</name>
+    <vendor>pipe4</vendor>
 
     <depends>com.intellij.modules.platform</depends>
 
     <extensions defaultExtensionNs="com.intellij">
-        <applicationService serviceImplementation="com.github.pioh.ideaplugin.services.MyApplicationService"/>
-        <projectService serviceImplementation="com.github.pioh.ideaplugin.services.MyProjectService"/>
+        <applicationService serviceImplementation="com.github.pipe4.idea.plugin.services.Pipe4ApplicationService"/>
+        <projectService serviceImplementation="com.github.pipe4.idea.plugin.services.Pipe4ProjectService"/>
+
+        <fileType name="Pipe4 File" implementationClass="com.github.pipe4.idea.plugin.language.Pipe4FileType"
+                  fieldName="INSTANCE" language="Pipe4" extensions="pipe4"/>
     </extensions>
 
     <applicationListeners>
-        <listener class="com.github.pioh.ideaplugin.listeners.MyProjectManagerListener"
+        <listener class="com.github.pipe4.idea.plugin.listeners.Pipe4ProjectManagerListener"
                   topic="com.intellij.openapi.project.ProjectManagerListener"/>
     </applicationListeners>
 </idea-plugin>
